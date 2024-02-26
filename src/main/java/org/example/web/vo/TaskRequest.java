@@ -15,7 +15,9 @@ import java.time.LocalDate;
 public class TaskRequest {
 
     private String title;
+
     private String description;
+
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
