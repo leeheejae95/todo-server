@@ -85,8 +85,10 @@ public class TaskController {
      * @return 수정된 할일 객체
      */
     @PutMapping("/{id}")
-    public ResponseEntity<Task> updateTask(@PathVariable Long id,
-                                           @RequestBody TaskRequest task) {
+    public ResponseEntity<Task> updateTask(
+            @PathVariable Long id,
+            @RequestBody TaskRequest task
+    ) {
         var result = this.taskService.update(id,
                 task.getTitle(),
                 task.getDescription(),
@@ -102,8 +104,10 @@ public class TaskController {
      * @return 수정된 할일 객체
      */
     @PatchMapping("/{id}/status")
-    public ResponseEntity<Task> updateTaskStatus(@PathVariable Long id,
-                                                 @RequestBody TaskStatusRequest req) {
+    public ResponseEntity<Task> updateTaskStatus(
+            @PathVariable Long id,
+            @RequestBody TaskStatusRequest req
+    ) {
         var result = this.taskService.updateStatus(id, req.getStatus());
         return ResponseEntity.ok(result);
     }
